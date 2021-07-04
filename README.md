@@ -96,7 +96,7 @@ HELLO: add r1,r2
 ```
 
 ## Translation to machine language
-The program translates the code to an imaginary numbering system:
+The program translates the code to an imaginary numbering system of 32 numbers:
 ```
 0: !   
 1: @
