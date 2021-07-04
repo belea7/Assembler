@@ -32,9 +32,7 @@ void check_extraneous_text (char *);
 /* Description: Updates a char pointer to point after a word
  * Input:       Pointer to update (char *), word to point after (char *).
  * Output:      The new pointer (char *).   */
-char * update_ptr (char *, char *);
-
-
+char* update_ptr (char *, char *);
 
 /* Description: Checks if atoi() returns zero because number is zero or string not integer.
  * Input:       String of the number (char *).
@@ -49,7 +47,7 @@ void get_data(char *);
 /* Description: Gets a string and validates it (.string declarations).
  * Input:       The string (char *).
  * Output:      Fixed string (char *).  */
-char * get_string(char *);
+char* get_string(char *);
 
 /* Description: Gets a s and validates it (.struct declarations).
  * Input:       The line in the file where struct declared.
@@ -86,19 +84,19 @@ void data_instruction(char *, char *);
 
 void data_instruction(char * data_type, char * line) {
     char word[100];
-    strct * temp;
+    strct* temp;
 
     strcpy(data_lines[data_index].type, data_type);
     data_lines[data_index].address = dc;
 
     /* Omit the . from the data type */
     data_type++;
+	
     /* If .data declaration */
     if (!strcmp(data_type, "data")) {
         strcpy(data_lines[data_index].name, labels[label_index].label_name);
         get_data(line);
     }
-
     else if (!strcmp(data_type, "string")) {
         strcpy(data_lines[data_index].name, labels[label_index].label_name);
         /* If no string was declared */
@@ -173,13 +171,16 @@ void get_data(char * line) {
             return;
         }
     }
+	
     strcpy(ptr, line);
     if (strstr(ptr, ",,"))
         print_error("invalid_comma");
+	
     /* If comma exists */
     temp_str1 = strtok(ptr, ",");
     for (i=0; i < MAX_ARR_LEN; i++) {
         rc = sscanf(temp_str1, " %s ", temp_str2);
+	    
         /* If numbers starts with + omit it */
         if (temp_str2[0] == '+')
             temp_str2[0] = '0';
@@ -210,7 +211,7 @@ void get_data(char * line) {
     return;
 }
 
-int is_zero (char * num) {
+int is_zero (char* num) {
     if (num[0] == '0')
         return YES;
     return NO;
@@ -231,7 +232,7 @@ char * get_string(char * string) {
     return string;
 }
 
-strct *get_struct(char * line) {
+strct * get_struct(char * line) {
     strct * temp = (strct *) malloc (sizeof(strct));
     int rc;
     char * str1, * str2 = (char *) malloc (MAX_STRING);
@@ -284,7 +285,7 @@ strct *get_struct(char * line) {
 
 void get_entry_extern (char * line, char * type) {
     int rc;
-    char *temp = (char *) malloc(MAX_STRING);
+    char * temp = (char *) malloc(MAX_STRING);
 
     if ((rc = sscanf(line, " %s %s ", data_lines[data_index].name, temp) == 2)) {
         print_error("extraneous_text");
