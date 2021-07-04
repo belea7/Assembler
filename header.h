@@ -70,8 +70,8 @@ typedef struct Data_Line{
 typedef struct {
 	char op_name[MAX_CMD];
 	unsigned int opcode;                                 /* Operation code: 16 different operations . */
-	char *src_address_types;                    /* Valid addressing types for source operand (0,1,2,3)*/
-	char *dest_address_types;                   /* Valid addressing types for destination operand (0,1,2,3)*/
+	char * src_address_types;                    /* Valid addressing types for source operand (0,1,2,3)*/
+	char * dest_address_types;                   /* Valid addressing types for destination operand (0,1,2,3)*/
 }op;
 
 
