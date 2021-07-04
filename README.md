@@ -90,4 +90,44 @@ STRUCT: .struct 8, "xyz"
 .entry HELLO
 HELLO: add r1,r2
 ```
-- **.extern** - declares a label from a different file, allowing access to it from this file.
+- **.extern** - declares a label from a different file, allowing access to it from this file. For example:
+```
+.extern HELLO
+```
+
+## Translation to machine language
+The program translates the code to an imaginary numbering system:
+```
+0: !   
+1: @
+2: #
+3: $
+4: %
+5: ^
+6: &
+7: *
+8: <
+9: >
+10: a
+11: b
+12: c
+13: d
+14: e
+15: f
+16: g
+17: h
+18: i
+19: j
+20: k
+21: l
+22: m
+23: n
+24: o
+25: p
+26: q
+27: r
+28: s
+29: t
+30: u
+31: v
+```
