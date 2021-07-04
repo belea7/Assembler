@@ -70,3 +70,24 @@ E, R, A - indicte the coding type: **A**bsolute (00) , **E**xternal (01) or **R*
 MAIN:       mov     S1.1, STR
 ````
 - A label will contain the line's  instruction counter.
+
+## Guidance line syntax
+These are lines that define variables:
+- **.data** - list of integers sepparated by commas. For example:
+```
+DATA: .data +7, -5, 17, 10
+```
+- **.string** - a string of characters (coded to ASCII). For example:
+``` 
+STRING: .string "abcabc"
+```
+- **.struct** - a data structure whose first variable is a number, and the second one is a string. For example:
+```
+STRUCT: .struct 8, "xyz"
+```
+- **.entry** - declares a label in the file, allowing other files to use it. For example:
+```
+.entry HELLO
+HELLO: add r1,r2
+```
+- **.extern** - declares a label from a different file, allowing access to it from this file.
