@@ -86,16 +86,16 @@ extern int label_index;                            /* Index of current label */
 extern int data_index;                             /* Index of current data line */
 extern int instructions_index;                     /* Index of current instruction */
 
-extern label labels [];                            /* Contains all labels */
-extern data_line data_lines [];                    /* Contains all data declarations */
-extern instruction_line instructions [];           /* Contains all instructions */
+extern label labels [];                            	/* Contains all labels */
+extern data_line data_lines [];                    	/* Contains all data declarations */
+extern instruction_line instructions [];           	/* Contains all instructions */
 
-extern int error;                                  /* Indicator if any syntax error found in code*/
+extern int error;                                  	/* Indicator if any syntax error found in code*/
 
 FILE *fp;
-unsigned adres; 							       /* Address of the instruction - will be printed */
-int is_null_src=NO;								   /* If source argument is empty */
-int is_null_dest=NO;							   /* If destination argument is empty */
+unsigned adres; 					/* Address of the instruction - will be printed */
+int is_null_src=NO;					/* If source argument is empty */
+int is_null_dest=NO;					/* If destination argument is empty */
 union_literal literal;
 
 /********************************************************************************************/
@@ -108,7 +108,7 @@ unsigned int digit_arr[] = {'!','@','#','$','%','^','&','*','<','>','a','b','c',
 void create_obj_file (char * file_name){
 	int i,k;
 	
-	/*opening file for writing the .ob file:  */
+	/* Opening file for writing the .ob file:  */
 	char *object_file_name = (char *)malloc(sizeof(file_name)+5);
 	if (!object_file_name){
 		printf("ERROR - cannot allocate");
@@ -117,13 +117,14 @@ void create_obj_file (char * file_name){
     adres = START_LINE;
 	sprintf(object_file_name,"%s.ob",file_name);
 	fp = fopen(object_file_name,"w");
-	/*write the dc ic :*/
+	
+	/* Write the dc ic :*/
 	literal.n32.num = (unsigned)ic;
 	fprintf(fp, "\t%c%c\t", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	literal.n32.num = (unsigned)dc;
 	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	
-	/*write the instructions */
+	/* Write the instructions */
 	for(i=0; i<instructions_index; i++){
 		update_and_print_adres();
 		literal = build_instruc_literal(instructions[i]);
@@ -197,7 +198,7 @@ void create_obj_file (char * file_name){
 			};
 	}
 	
-	/*write the data*/
+	/* Write the data */
 	for(i=0; i<data_index; i++){
 		if(!strcmp(data_lines[i].type, ".data"))
 			print_type_data(data_lines[i]);
@@ -226,7 +227,7 @@ void create_obj_file (char * file_name){
 
 /********************************  more functions   *****************************************/
 
-data_line *find_data(char *name){ 
+data_line* find_data(char *name){ 
 	int i;
 	for(i=0; i<data_index; i++)
 		if (!strcmp(name,data_lines[i].name))
@@ -235,7 +236,7 @@ data_line *find_data(char *name){
 }
 
 
-label *find_label(char *name){ 
+label* find_label(char *name){ 
 	int i;
 	for(i=0; i<label_index; i++)
 		if (!strcmp(name,labels[i].label_name))
@@ -254,7 +255,8 @@ union_literal build_instruc_literal(instruction_line instruct){
 	else{
 		lit.instruc.src_address_type = addressing_type(instruct.src_operand_name);
 		is_null_src = NO;
-	}	
+	}
+	
 	if (!strlen(instruct.dest_operand_name)){
 		lit.instruc.dest_address_type = 0;
 		is_null_dest = YES;
@@ -274,9 +276,9 @@ void print32(){
 
 
 void update_and_print_adres(){
-		literal.n32.num = adres;
-		fprintf(fp, "%c%c\t\t\t", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
-		adres++;
+	literal.n32.num = adres;
+	fprintf(fp, "%c%c\t\t\t", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+	adres++;
 }
 
 
@@ -371,12 +373,7 @@ void print_type_string(data_line data_line1){
 		literal.n32.num = data_line1.value.string[k];
 		fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
 	}
-		update_and_print_adres();
-		literal.n32.num = 0;
-		fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+	update_and_print_adres();
+	literal.n32.num = 0;
+	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
 }
-
-
-
-
-
