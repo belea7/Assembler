@@ -59,3 +59,14 @@ E, R, A - indicte the coding type: **A**bsolute (00) , **E**xternal (01) or **R*
 | 14 | rts | Pops the value from the top of the stack and stores in PC (no operands). | rts |
 | 15 | stop | Exits the program (no operands).  | stop |
 
+## Instruction line syntax
+- Instructions are separated by new lines '\n'.
+- Every line/instruction is limited to 80 characters (without '\n').
+- Blank lines are allowed.
+- Comments start with ';'.
+- A comma has to separate between parameters (only one, blnaks and tabs are allowed).
+- Every line can start with a label. A label has to start with a letter that can be followed by numbers or more letters, and has to terminate with ':'. For example:
+```
+MAIN:       mov     S1.1, STR
+````
+- A label will contain the line's  instruction counter.
