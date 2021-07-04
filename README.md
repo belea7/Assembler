@@ -29,13 +29,13 @@ S1:         .struct 8, "ab"
 ## Usage
 Use makefile to compile the project like this:
 
->   make
+> > make
 
 After preparing assembly files with an .as extension, open terminal and pass file names as arguments (without the file extensions) as following:
 
 As for the files x.as, y.as, hello.as we will run:
 
->   assembler x y hello
+> > assembler x y hello
 
 
 The assembler will generate output files with the same filenames and the following extensions:
