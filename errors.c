@@ -19,8 +19,8 @@ extern int error;
 void print_error (char *);
 
 typedef struct{
-    char *ID;
-    char *message;
+    char * ID;
+    char * message;
 }error_message;
 
 static error_message errors_list[] =  {
