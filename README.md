@@ -40,9 +40,10 @@ As for the files x.as, y.as, hello.as we will run:
 
 The assembler will generate output files with the same filenames and the following extensions:
 
-.ob - Object file
-.ent - Entries file
-.ext - Externals file
+- .ob - Object file
+- .ent - Entries file
+- .ext - Externals file
+
 An example of input and output files can be found under the 'tests' folder.
 
 ## Hardware
