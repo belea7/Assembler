@@ -78,6 +78,7 @@ void add_arg (op *, char *, char *);
  * Input:       op pointer, type of operand (source/destination), operand name (char *).
  * Output:      None.   */
 void validate_address_type (op *, char *, unsigned);
+
 /* Description: Calculates number of lines an instruction line takes and checks syntax.
  * Input:       Operation name (char *), rest of the line (char *).
  * Output:      None.   */
@@ -163,7 +164,7 @@ void update_ic (char * cmd, char * line) {
 }
 
 
-op *get_operation (char * name) {
+op * get_operation (char * name) {
     int i = 0;
     /* While didn't reach the end of the op list (empty op name) */
     while (strlen(op_arr[i].op_name)) {
