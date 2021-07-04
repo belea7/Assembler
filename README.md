@@ -131,3 +131,43 @@ The program translates the code to an imaginary numbering system of 32 numbers:
 30: u
 31: v
 ```
+For example:
+```
+	!i	!f
+$%			@%
+$^			g&
+$&			!%
+$*			eq
+$<			^k
+$>			%!
+$a			eq
+$b			o!
+$c			vc
+$d			*s
+$e			#g
+$f			fk
+$g			#!
+$h			g#
+$i			@c
+$j			g&
+$k			!<
+$l			!c
+$m			us
+$n			g&
+$o			!c
+$p			$@
+$q			$#
+$r			$$
+$s			$%
+$t			$^
+$u			$&
+$v			!!
+%!			!&
+%@			vn
+%#			!f
+%$			!m
+%%			!<
+%^			$@
+%&			$#
+%*			!!
+```
