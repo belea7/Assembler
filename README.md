@@ -44,7 +44,6 @@ The assembler will generate output files with the same filenames and the followi
 - .ent - Entries file
 - .ext - Externals file
 
-An example of input and output files can be found under the 'tests' folder.
 
 ## Hardware
 - CPU: 8 general registers (r1,r2,...,r8) and PSW (program status word), 10 bits each.
