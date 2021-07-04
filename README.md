@@ -41,7 +41,7 @@ E, R, A - indicte the coding type: **A**bsolute (00) , **E**xternal (01) or **R*
 
 ## Instructions
 | Opcode | Instruction | Description | Example |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | 0 | mov | Copies content oof source operand to destination operand. | mov r2, r1 |
 | 1 | cmp | Compares the content of two operands. | cmp r1, r2 | Compares the contents of the registers. |
 | 2 | add | Sums contents of both operands and stores the result in the destination operand. | add r2 r1 |
