@@ -26,6 +26,22 @@ K:          .data   22
 S1:         .struct 8, "ab"
 ```
 
+## Usage
+Use makefile to compile the project like this:
+
+>   make
+After preparing assembly files with an .as extension, open terminal and pass file names as arguments (without the file extensions) as following:
+
+As for the files x.as, y.as, hello.as we will run:
+
+>   assembler x y hello
+The assembler will generate output files with the same filenames and the following extensions:
+
+.ob - Object file
+.ent - Entries file
+.ext - Externals file
+An example of input and output files can be found under the 'tests' folder.
+
 ## Hardware
 - CPU: 8 general registers (r1,r2,...,r8) and PSW (program status word), 10 bits each.
 - RAM (including a stack) in a size of 256 words.
