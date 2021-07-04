@@ -1,7 +1,7 @@
 /*      Assembler Project
  *
- *      Created By:     Daniel de-Mayo  2004545346
- *                      Lea Ben Zvi     313222333
+ *      Created By:     Daniel de-Mayo
+ *                      Lea Ben Zvi
  *
  *      File Name:      header.h
  *      Description:    Header file for all files in the project.
@@ -37,7 +37,7 @@ typedef struct {
 /* Label (Linked list) */
 typedef struct Label {
     char label_name[MAX_LABEL_NAME];            /* Name of label */
-    unsigned int dec_address;                            /* labels address in decimal */
+    unsigned int dec_address;                   /* labels address in decimal */
     int is_extern;                              /* Is label external (1 - YES,  0 - NO) */
     char type;                                  /* What type of the label ('i' - instruction,  'd' - direction */
 }label;
@@ -51,7 +51,7 @@ typedef struct {
 typedef union {
     data_list numbers;                          /* .data */
     char string [MAX_STRING];                   /* .string / .entry / .extern*/
-    strct s;                                /* .struct */
+    strct s;                                	/* .struct */
 } data;
 
 
@@ -69,7 +69,7 @@ typedef struct Data_Line{
 /* Represents an operation in assembly containing all relevant data about it */
 typedef struct {
 	char op_name[MAX_CMD];
-	unsigned int opcode;                                 /* Operation code: 16 different operations . */
+	unsigned int opcode;                         /* Operation code: 16 different operations . */
 	char * src_address_types;                    /* Valid addressing types for source operand (0,1,2,3)*/
 	char * dest_address_types;                   /* Valid addressing types for destination operand (0,1,2,3)*/
 }op;
@@ -77,7 +77,7 @@ typedef struct {
 
 /* Represents and instructions line */
 typedef struct Instruction{
-	unsigned opcode;                                 /* The operation performed */
+	unsigned opcode;                                /* The operation performed */
     char src_operand_name [MAX_OPERAND_NAME];           /* Source operand */
     char dest_operand_name [MAX_OPERAND_NAME];          /* Destination operand */
 	int cur_ic;
@@ -107,7 +107,7 @@ typedef struct {
 
 /* A struct representing a register access decoding */
 typedef struct {
-	unsigned int AER:2;				/* AER */
+	unsigned int AER:2;			/* AER */
 	unsigned int dest_reg:4;		/* number of dest reg */
 	unsigned int src_reg:4;			/* number of src  reg */
 } reg_code;
@@ -131,16 +131,3 @@ typedef union {
 	int_32print n32;
 	literal32 lit32;
 } union_literal;
-
-
-
-
-
-
-
-
-
-
-
-
-
