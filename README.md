@@ -40,22 +40,22 @@ S1:         .struct 8, "ab"
 E, R, A - indicte the coding type: **A**bsolute (00) , **E**xternal (01) or **R**elocatable (10).
 
 ## Instructions
-| Opcode | Instruction | Description | Example | Example Explanation |
+| Opcode | Instruction | Description | Example |
 | --- | --- | --- | --- | --- |
-| 0 | mov | Copies content oof source register to destination register. | mov r2, r1 | Copies contents of r2 to r1 |
+| 0 | mov | Copies content oof source operand to destination operand. | mov r2, r1 |
 | 1 | cmp | Compares the content of two operands. | cmp r1, r2 | Compares the contents of the registers. |
-| 2 | add | Sums contents of both operands and stores the result in the source operand. | add r2 r1 | Sums r1 and r2 |
-| 3 | sub | | | |
-| 4 | not | | | |
-| 5 | clr | | | |
-| 6 | lea | | | |
-| 7 | inc | | | |
-| 8 | dec | | | |
-| 9 | jmp | | | |
+| 2 | add | Sums contents of both operands and stores the result in the destination operand. | add r2 r1 |
+| 3 | sub | Substracts the content of the first operand from the second one and stores the result in the second operand. | sub r1 r2|
+| 4 | not | Flips the content of the operand. | not r2 |
+| 5 | clr | Clears the content of the operand. | clr r2 |
+| 6 | lea | Load affective address. Loads the address stored in the source operand to the destination operand. | lea HELLO, r1 |
+| 7 | inc | Increases value of the operand by 1. | inc r1 |
+| 8 | dec | Decreases value of the operand by 1. | dec r1 |
+| 9 | jmp | Jump to the instruction whose address is stored in the operand (the PC will be updated to this address). | jmp LINE |
 | 10 | bne | | | |
-| 11 | red | | | |
-| 12 | prn | | | |
-| 13 | jsr | | | |
-| 14 | rts | | | |
-| 15 | stop | | | |
+| 11 | red | Reds a character from STDIN and store it in the operand. | red r1 |
+| 12 | prn | Prints to STDOUT the character from the operand | prn r1 |
+| 13 | jsr | Pushes the content of the current PC counter to stack and loads the content of the operand. | jsr FUNC |
+| 14 | rts | Pops the value from the top of the stack and stores in PC (no operands). | rts |
+| 15 | stop | Exits the program (no operands).  | stop |
 
