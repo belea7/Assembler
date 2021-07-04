@@ -32,7 +32,7 @@ void check_extraneous_text (char *);
 /* Description: Updates a char pointer to point after a word
  * Input:       Pointer to update (char *), word to point after (char *).
  * Output:      The new pointer (char *).   */
-char* update_ptr (char *, char *);
+char * update_ptr (char *, char *);
 
 /* Description: Checks if atoi() returns zero because number is zero or string not integer.
  * Input:       String of the number (char *).
@@ -47,12 +47,12 @@ void get_data(char *);
 /* Description: Gets a string and validates it (.string declarations).
  * Input:       The string (char *).
  * Output:      Fixed string (char *).  */
-char* get_string(char *);
+char * get_string(char *);
 
 /* Description: Gets a s and validates it (.struct declarations).
  * Input:       The line in the file where struct declared.
  * Output:      Pointer to s (a struct representing struct object in assembly). */
-strct *get_struct(char *);
+strct * get_struct(char *);
 
 /* Description: Validates entry (.entry declarations).
  * Input:       Entry name (char *).
@@ -84,7 +84,7 @@ void data_instruction(char *, char *);
 
 void data_instruction(char * data_type, char * line) {
     char word[100];
-    strct* temp;
+    strct * temp;
 
     strcpy(data_lines[data_index].type, data_type);
     data_lines[data_index].address = dc;
@@ -211,7 +211,7 @@ void get_data(char * line) {
     return;
 }
 
-int is_zero (char* num) {
+int is_zero (char * num) {
     if (num[0] == '0')
         return YES;
     return NO;
