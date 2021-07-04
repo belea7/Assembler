@@ -1,7 +1,7 @@
 /*      Assembler Project
  *
- *      Created By:     Daniel de-Mayo  2004545346
- *                      Lea Ben Zvi     313222333
+ *      Created By:     Daniel de-Mayo
+ *                      Lea Ben Zvi
  *
  *      File Name:      create_ext_ent_files.c
  *      Description:    Includes all error messages and function to print them.
