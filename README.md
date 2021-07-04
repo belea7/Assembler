@@ -37,12 +37,14 @@ S1:         .struct 8, "ab"
 | --- | --- | --- | --- |
 | Opcode | Source operand addressing method | Destination operand addressing method | E, R, A|
 
+E, R, A - indicte the coding type: **A**bsolute (00) , **E**xternal (01) or **R**elocatable (10).
+
 ## Instructions
-| Code | Instruction | Description | Example | Example Explanation |
+| Opcode | Instruction | Description | Example | Example Explanation |
 | --- | --- | --- | --- | --- |
-| 0 | mov | | | |
-| 1 | cmp | | | |
-| 2 | add | | | |
+| 0 | mov | Copies content oof source register to destination register. | mov r2, r1 | Copies contents of r2 to r1 |
+| 1 | cmp | Compares the content of two operands. | cmp r1, r2 | Compares the contents of the registers. |
+| 2 | add | Sums contents of both operands and stores the result in the source operand. | add r2 r1 | Sums r1 and r2 |
 | 3 | sub | | | |
 | 4 | not | | | |
 | 5 | clr | | | |
