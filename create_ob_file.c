@@ -23,12 +23,12 @@ unsigned addressing_type (char * name);
 /* Description: Finds data in the data array and return a pointer to it.
  * Input:       Data label (char *).
  * Output:      Pointer to a data line (data_line *)    */
-data_line *find_data(char *);
+data_line* find_data(char *);
 
 /* Description: Finds label in the label array and return a pointer to it.
  * Input:       Label name (char *).
  * Output:      Pointer to a label (label *)    */
-label *find_label(char *);
+label* find_label(char *);
 
 /* Description: Each iteration we walk on the instruction array,
  * 				We built an instruction in the convection of an memory word (literal).
@@ -92,7 +92,7 @@ extern instruction_line instructions [];           	/* Contains all instructions
 
 extern int error;                                  	/* Indicator if any syntax error found in code*/
 
-FILE *fp;
+FILE* fp;
 unsigned adres; 					/* Address of the instruction - will be printed */
 int is_null_src=NO;					/* If source argument is empty */
 int is_null_dest=NO;					/* If destination argument is empty */
@@ -114,7 +114,7 @@ void create_obj_file (char * file_name){
 		printf("ERROR - cannot allocate");
 		error = YES;
 	}
-    adres = START_LINE;
+    	adres = START_LINE;
 	sprintf(object_file_name,"%s.ob",file_name);
 	fp = fopen(object_file_name,"w");
 	
