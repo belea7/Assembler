@@ -92,7 +92,7 @@ extern instruction_line instructions [];           	/* Contains all instructions
 
 extern int error;                                  	/* Indicator if any syntax error found in code*/
 
-FILE* fp;
+FILE * fp;
 unsigned adres; 					/* Address of the instruction - will be printed */
 int is_null_src=NO;					/* If source argument is empty */
 int is_null_dest=NO;					/* If destination argument is empty */
@@ -109,7 +109,7 @@ void create_obj_file (char * file_name){
 	int i,k;
 	
 	/* Opening file for writing the .ob file:  */
-	char *object_file_name = (char *)malloc(sizeof(file_name)+5);
+	char * object_file_name = (char *)malloc(sizeof(file_name)+5);
 	if (!object_file_name){
 		printf("ERROR - cannot allocate");
 		error = YES;
@@ -227,7 +227,7 @@ void create_obj_file (char * file_name){
 
 /********************************  more functions   *****************************************/
 
-data_line* find_data(char *name){ 
+data_line * find_data(char *name){ 
 	int i;
 	for(i=0; i<data_index; i++)
 		if (!strcmp(name,data_lines[i].name))
@@ -236,7 +236,7 @@ data_line* find_data(char *name){
 }
 
 
-label* find_label(char *name){ 
+label * find_label(char *name){ 
 	int i;
 	for(i=0; i<label_index; i++)
 		if (!strcmp(name,labels[i].label_name))
