@@ -78,13 +78,13 @@ void create_obj_file (char *);
 
 /************** Counters (declared in first_scan.c) ***************/
 
-extern int ic;                                     /* Number of instruction coding lines */
-extern int dc;                                     /* Number of data declaration lines */
-extern int line_num;                               /* Current line number */
+extern int ic;                                     	/* Number of instruction coding lines */
+extern int dc;                                     	/* Number of data declaration lines */
+extern int line_num;                               	/* Current line number */
 
-extern int label_index;                            /* Index of current label */
-extern int data_index;                             /* Index of current data line */
-extern int instructions_index;                     /* Index of current instruction */
+extern int label_index;                            	/* Index of current label */
+extern int data_index;                             	/* Index of current data line */
+extern int instructions_index;                     	/* Index of current instruction */
 
 extern label labels [];                            	/* Contains all labels */
 extern data_line data_lines [];                    	/* Contains all data declarations */
