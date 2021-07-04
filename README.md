@@ -1,4 +1,8 @@
+# Assembler
+
 **Assembler** is my final project for the "C programming lab course" course in my BSc.
+
+## Summary
 
 The program simulates an assembler, which translates code written in Assembly to machine language.
 The program accepts a list of text files, processes the instructions they contain, verifies there is no syntax errors, and outputs the files containing the translated program to machine language.
@@ -22,43 +26,13 @@ K:          .data   22
 S1:         .struct 8, "ab"
 ```
 
-Example of output files:
-```
-	!i	!f
-$%			@%
-$^			g&
-$&			!%
-$*			eq
-$<			^k
-$>			%!
-$a			eq
-$b			o!
-$c			vc
-$d			*s
-$e			#g
-$f			fk
-$g			#!
-$h			g#
-$i			@c
-$j			g&
-$k			!<
-$l			!c
-$m			us
-$n			g&
-$o			!c
-$p			$@
-$q			$#
-$r			$$
-$s			$%
-$t			$^
-$u			$&
-$v			!!
-%!			!&
-%@			vn
-%#			!f
-%$			!m
-%%			!<
-%^			$@
-%&			$#
-%*			!!
-```
+## Hardware
+- CPU: 8 general registers (r1,r2,...,r8) and PSW (program status word), 10 bits each.
+- RAM (including a stack) in a size of 256 words.
+- A word's size is 10 bits.
+- Signed 2's complement arithmetic integers (no support for real numbers).
+
+## Incsruction structure
+| 9 8 7 6 | 5 4 | 3 2 | 1 0 |
+| --- | --- | --- | --- |
+| Opcode | Source operand addressing method | Destination operand addressing method | E, R, A|
