@@ -4,27 +4,9 @@
 
 ## Summary
 
-The program simulates an assembler, which translates code written in Assembly to machine language.
+The program simulates an assembler, which translates code written in Assembly to binary code.
 The program accepts a list of text files, processes the instructions they contain, verifies there is no syntax errors, and outputs the files containing the translated program to machine language.
 If any syntax error is found, the program will output an informative error message for the user.
-
-Example of input file:
-```
-; file ps.as
-
-MAIN:       mov     S1.1, STR
-            add     r2, STR
-LOOP:       prn     #-5
-            sub     r1,r4
-            inc     K
-
-            mov     S1.2,r3
-END:        stop
-STR:        .string "abcdef"
-LENGTH:     .data   6,-9,15
-K:          .data   22
-S1:         .struct 8, "ab"
-```
 
 ## Usage
 Use makefile to compile the project like this:
@@ -90,7 +72,7 @@ MAIN:       mov     S1.1, STR
 ````
 - A label will contain the line's  instruction counter.
 
-## Guidance line syntax
+## Declaration line syntax
 These are lines that define variables:
 - **.data** - list of integers sepparated by commas. For example:
 ```
@@ -114,8 +96,8 @@ HELLO: add r1,r2
 .extern HELLO
 ```
 
-## Translation to machine language
-The program translates the code to an imaginary numbering system of 32 numbers:
+## Translation to machine language binary code.
+The program translates the code to an imaginary numbering 32-base:
 ```
 0: !   
 1: @
@@ -150,7 +132,110 @@ The program translates the code to an imaginary numbering system of 32 numbers:
 30: u
 31: v
 ```
-For example:
+
+**Run examples
+
+Input file:
+1. The first file:
+```
+; file ps.as
+
+.entry LOOP
+.entry LENGTH
+.extern L3
+.extern W
+MAIN:       mov     S1.1, W
+            add     r2, STR
+LOOP:       jmp     W
+            prn     #-5
+            sub     r1,r4
+            inc     K
+
+            mov     S1.2,r3
+            bne     L3
+END:        stop
+STR:        .string "abcdef"
+LENGTH:     .data   6,-9,15
+K:          .data   22
+S1:         .struct 8, "ab"
+```
+
+2. The second file:
+```
+; file ps.as
+
+MAIN:       mov     S1.1, STR
+            add     r2, STR
+LOOP:       prn     #-5
+            sub     r1,r4
+            inc     K
+
+            mov     S1.2,r3
+END:        stop
+STR:        .string "abcdef"
+LENGTH:     .data   6,-9,15
+K:          .data   22
+S1:         .struct 8, "ab"
+```
+
+The program putputs the following files:
+
+1. Entries file:
+```
+LOOP	$b
+LENGTH	%@
+```
+
+2. Externals file:
+```
+L3	$o
+W	$*
+W	$c
+```
+
+3. Translted files:
+
+First file:
+```
+	!m	!f
+$%			@%
+$^			gm
+$&			!%
+$*			!@
+$<			^k
+$>			%!
+$a			fa
+$b			i%
+$c			!@
+$d			o!
+$e			vc
+$f			*s
+$g			#g
+$h			e%
+$i			gi
+$j			@c
+$k			gm
+$l			!<
+$m			!c
+$n			k%
+$o			!@
+$p			u!
+$q			$@
+$r			$#
+$s			$$
+$t			$%
+$u			$^
+$v			$&
+%!			!!
+%@			!&
+%#			vn
+%$			!f
+%%			!m
+%^			!<
+%&			$@
+%*			$#
+%<			!!
+```
 ```
 	!i	!f
 $%			@%
