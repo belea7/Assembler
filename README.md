@@ -96,7 +96,7 @@ HELLO: add r1,r2
 .extern HELLO
 ```
 
-## Translation to machine language binary code.
+## Translation to binary code.
 The program translates the code to an imaginary numbering 32-base:
 ```
 0: !   
