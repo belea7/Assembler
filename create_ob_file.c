@@ -211,11 +211,11 @@ void create_obj_file (char * file_name){
 			for(k=0; k < strlen(data_lines[i].value.s.string); k++){
 				update_and_print_adres();	
 				literal.n32.num = data_lines[i].value.s.string[k];
-				fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+				fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 			}
 				update_and_print_adres();
 				literal.n32.num = 0;
-				fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);			
+				fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);			
 		}
 	}
 	
@@ -271,13 +271,13 @@ union_literal build_instruc_literal(instruction_line instruct){
 
 
 void print32(){
-	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 }
 
 
 void update_and_print_adres(){
 	literal.n32.num = adres;
-	fprintf(fp, "%c%c\t\t\t", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+	fprintf(fp, "%c%c\t\t\t", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	adres++;
 }
 
@@ -361,7 +361,7 @@ void print_type_data(data_line l){
 	for(k=0; k < l.value.numbers.length; k++){
 		update_and_print_adres();
 		literal.n32.num = l.value.numbers.arr[k];
-		fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+		fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	}
 }
 
@@ -371,9 +371,9 @@ void print_type_string(data_line data_line1){
 	for(k=0; k < strlen(data_line1.value.string); k++){
 		update_and_print_adres();	
 		literal.n32.num = data_line1.value.string[k];
-		fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+		fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	}
 	update_and_print_adres();
 	literal.n32.num = 0;
-	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit],digit_arr[literal.lit32.second_digit]);
+	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 }
