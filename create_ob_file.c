@@ -118,14 +118,14 @@ void create_obj_file (char * file_name){
 	sprintf(object_file_name,"%s.ob",file_name);
 	fp = fopen(object_file_name,"w");
 	
-	/* Write the dc ic :*/
+	/* Write the dc and ic :*/
 	literal.n32.num = (unsigned)ic;
 	fprintf(fp, "\t%c%c\t", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	literal.n32.num = (unsigned)dc;
 	fprintf(fp, "%c%c\n", digit_arr[literal.lit32.first_digit], digit_arr[literal.lit32.second_digit]);
 	
 	/* Write the instructions */
-	for(i=0; i<instructions_index; i++){
+	for(i=0; i < instructions_index; i++){
 		update_and_print_adres();
 		literal = build_instruc_literal(instructions[i]);
 		print32();
