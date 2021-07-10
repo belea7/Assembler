@@ -109,6 +109,7 @@ void first_scan (FILE * fp) {
         labeled = NO;
 
         fgets(line, MAX_LINE, fp);
+        
         /* If empty row or a comment (start with ; ) */
         if (sscanf(line, "%s ", word) == EOF|| word[0] == ';')
             continue;
@@ -123,13 +124,14 @@ void first_scan (FILE * fp) {
             is_label_distinct(word);
 
 
-            /* If line is empty */
+            /* If the line is empty but contains a lebl - print error*/
             if (sscanf(ptr, "%s ", word) == EOF) {
                 print_error("label_on_empty_line");
                 continue;
             }
             ptr = update_ptr(ptr, word);
         }
+        
         /* If data declaration line */
         if (is_data_type(word)) {
             labels[label_index].type = 'd';
