@@ -78,9 +78,9 @@ typedef struct {
 
 /* Represents and instructions line */
 typedef struct Instruction{
-	unsigned opcode;                                /* The operation performed */
-    char src_operand_name [MAX_OPERAND_NAME];           /* Source operand */
-    char dest_operand_name [MAX_OPERAND_NAME];          /* Destination operand */
+	unsigned opcode;				/* The operation performed */
+    	char src_operand_name [MAX_OPERAND_NAME];	/* Source operand */
+    	char dest_operand_name [MAX_OPERAND_NAME];      /* Destination operand */
 	int cur_ic;
 } instruction_line;
 
