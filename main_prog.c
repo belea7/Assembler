@@ -38,26 +38,35 @@ void create_entries_file (char *);
 int error;                             /* Indicator if any syntax error found in code*/
 
 int main(int argc, char * argv[]) {
-    FILE * fp;
-    int i;
-
+	FILE * fp;
+	int i;
+	
+	/* Process every input file */
 	for (i=1; i < argc; i++) {
-        error = NO;
-        fp = fopen(argv[i], "r");
-        if (!fp) {
-            printf("\nFile does not exist\n");
-            exit(0);
-        }
-        first_scan(fp);
-        fclose(fp);
-        if (!error){
-            create_obj_file(argv[i]);
+        	error = NO;
+        	fp = fopen(argv[i], "r");
+		
+		/* If file doesn't exist - print error message */
+        	if (!fp) {
+            		printf("\nFile does not exist\n");
+            		exit(0);
+        	}
+		
+		/* Perform first scan and close file*/
+        	first_scan(fp);
+        	fclose(fp);
+		
+		/* If no errors found after first scan - create object file */
+        	if (!error)
+	            	create_obj_file(argv[i]);
+		
+		/* If no errors found during second scan - create internals and externals files */
+		if (!error) {
+			create_externals_file(argv[i]);
+		    	create_entries_file(argv[i]);
 		}
-        if (!error) {
-            create_externals_file(argv[i]);
-            create_entries_file(argv[i]);
-        }
-        putchar('\n');
-    }
-    return 0;
+		
+		putchar('\n');
+	}
+	return 0;
 }
