@@ -42,6 +42,7 @@ typedef struct Label {
     char type;                                  /* What type of the label ('i' - instruction,  'd' - direction */
 }label;
 
+/* An array of data */
 typedef struct {
     int arr [MAX_ARR_LEN];
     int length;
