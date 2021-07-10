@@ -15,7 +15,7 @@
 
 #define MAX_LINE 81                     /* Maximum line length */
 #define MAX_LABEL_NAME 31               /* Maximum label length */
-#define MAX_OPERAND_NAME 20                 /* Maximum argument name length */
+#define MAX_OPERAND_NAME 20             /* Maximum argument name length */
 #define MAX_STRING 30                   /* Maximum string length */
 #define MAX_CMD 8                       /* Maximum operation name length */
 #define START_LINE 100                  /* Address of first line in program */
