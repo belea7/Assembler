@@ -103,7 +103,8 @@ void first_scan (FILE * fp) {
     instructions_index = 0;
     data_index = 0;
     label_index = 0;
-
+    
+    /* Read all lines in file and process tham */
     while (!feof(fp)) {
         line_num += 1;
         labeled = NO;
@@ -124,7 +125,7 @@ void first_scan (FILE * fp) {
             is_label_distinct(word);
 
 
-            /* If the line is empty but contains a lebl - print error*/
+            /* If the line is empty but contains a lebl - print error */
             if (sscanf(ptr, "%s ", word) == EOF) {
                 print_error("label_on_empty_line");
                 continue;
@@ -141,12 +142,12 @@ void first_scan (FILE * fp) {
             data_instruction(word, ptr);
             data_index++;
         }
-
+        /* If instruction line - add to instructions table and updet IC */
         else {
             update_ic(word, ptr);
             instructions_index++;
         }
-
+        /* If lables line - add to labels table */
         if (labeled) {
             label_index++;
             labeled = NO;
@@ -154,7 +155,7 @@ void first_scan (FILE * fp) {
     }
     free(line);
 
-    /* Update all data addresses according to ic */
+    /* Update all data addresses according to IC */
     update_data_addresses();
     no_spare_entries ();
 }
@@ -171,6 +172,8 @@ int is_data_type(char * word) {
     int i;
     if (word[0] != '.')
         return NO;
+    
+    /* Check which type of variable is declared */
     for (i=0; i < 5; i++) {
         if (!strcmp(word, data_types[i])) {
             return YES;
